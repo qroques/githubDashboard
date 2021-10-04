@@ -15,12 +15,12 @@ class OrganizationController extends AbstractController
     {
         $this->githubClient = $githubClient;
     }
-    #[Route('/organization', name: 'organization')]
-    public function index(): Response
+    #[Route('/organization/{organization}', name: 'organization')]
+    public function index(string $organization): Response
     {
-        dump($this->githubClient->api('organizations')->show('KnpLabs'));
         return $this->render('organization/index.html.twig', [
-            'controller_name' => 'OrganizationController',
+            'organization' => $organization,
+            'repositories' =>  $this->githubClient->api('repo')->org($organization)
         ]);
     }
 }

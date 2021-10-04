@@ -9,12 +9,11 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
+    <h1>{{ organization }} public repositories ({{ repositories|length}})</h1>
     <ul>
-        <li>Your controller at <code><a href="{{ '/usr/src/app/src/Controller/OrganizationController.php'|file_link(0) }}">src/Controller/OrganizationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/usr/src/app/templates/organization/index.html.twig'|file_link(0) }}">templates/organization/index.html.twig</a></code></li>
+        {% for repository in repositories %}
+            <li><a href="{{ repository.html_url }}">{{ repository.name }}</a></li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}
