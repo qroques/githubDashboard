@@ -7,7 +7,8 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN apt-get update && \
 apt-get install -y \
 libzip-dev \
-libsqlite3-dev
+libsqlite3-dev \
+zip unzip
 
 WORKDIR /usr/src/app
 
