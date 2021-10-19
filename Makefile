@@ -9,4 +9,4 @@ start:
 	docker-compose up -d
 
 stop:
-	docker-composer stop
+	docker-compose stop
