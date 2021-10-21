@@ -27,12 +27,12 @@ class ContributorController extends AbstractController
         /** @var array<string, Contributor> */
         $contributors = [];
 
-        foreach($repositories as $repository) {
-            if($repository['fork']) {
+        foreach ($repositories as $repository) {
+            if ($repository['fork']) {
                 continue;
             }
             $statistics = $repoClient->contributors($organization, $repository['name']);
-            foreach($statistics as $apiContributor) {
+            foreach ($statistics as $apiContributor) {
                 dump($apiContributor);
                 $login = $apiContributor['login'];
                 $contributor = array_key_exists($login, $contributors) ? $contributors[$login] : new Contributor($login, $apiContributor['avatar_url'], $apiContributor['html_url']);

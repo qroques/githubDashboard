@@ -24,29 +24,29 @@ class Contributor
     {
         $this->contributions += $contributions;
     }
-    
-	public function getContributions(): int
-	{
-		return $this->contributions;
-	}
 
-	public function getLogin(): string
-	{
-		return $this->login;
-	}
+    public function getContributions(): int
+    {
+        return $this->contributions;
+    }
+
+    public function getLogin(): string
+    {
+        return $this->login;
+    }
 
     public function __toString(): string
     {
         return $this->getLogin();
     }
 
-	public function getAvatar(): mixed
-	{
-		return $this->avatar;
-	}
+    public function getAvatar(): mixed
+    {
+        return $this->avatar;
+    }
 
-	public function getProfile(): mixed
-	{
-		return $this->profile;
-	}
+    public function getProfile(): mixed
+    {
+        return $this->profile;
+    }
 }
